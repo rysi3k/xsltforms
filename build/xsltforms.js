@@ -3377,7 +3377,10 @@ XsltForms_binding.prototype.bind_evaluate = function(subform, ctx, varresolver, 
 	} else {
 		var exprCtx = new XsltForms_exprContext(subform, !ctx || (this.model && this.model !== document.getElementById(XsltForms_browser.getMeta(ctx.ownerDocument.documentElement, "model")).xfElement) ? this.model ? this.model.getInstanceDocument().documentElement : XsltForms_globals.defaultModel.getInstanceDocument().documentElement : ctx,
 			null, null, null, null, ctx, varresolver, depsNodes, depsId, depsElements, this.model);
-		result = this.xpath.xpath_evaluate(exprCtx);
+		result = this.xpath;
+		while(result instanceof XsltForms_xpath) {
+			result = result.xpath_evaluate(exprCtx);
+		}
 	}
 	XsltForms_browser.assert(this.type || !result || typeof result === "object", "Binding evaluation didn't returned a nodeset but '"+(typeof result === "object" ? "" : result)+"' for " + (this.bind ? "bind: " + this.bind : "XPath expression: " + this.xpath.expression));
 	switch (this.type) {
