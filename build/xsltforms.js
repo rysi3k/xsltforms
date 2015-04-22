@@ -8292,7 +8292,7 @@ XsltForms_submission.prototype.submit = function() {
 			this.pending = false;
 			return;
 		}
-		if ((method === "get" || method === "delete") && this.serialization !== "none" && action.substr(0, 9) !== "opener://" && action.substr(0, 8) !== "local://") {
+		if ((method === "get" || method === "delete") && this.serialization !== "none" && action.substr(0, 9) !== "opener://" && action.substr(0, 8) !== "local://" && action.substr(0, 11) !== "javascript:") {
 			var tourl = XsltForms_submission.toUrl_(node, this.separator);
 			if (tourl.length > 0) {
 				action += (action.indexOf('?') === -1? '?' : this.separator) + tourl.substr(0, tourl.length - this.separator.length);
