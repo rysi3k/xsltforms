@@ -797,6 +797,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 				<xsl:with-param name="appearance" select="$appearance"/>
 				<xsl:with-param name="body">
 					<input type="text" id="{$inputid}">
+						<xsl:copy-of select="@*[local-name() != 'ref' and local-name() != 'id' and local-name() != 'class']"/>
 						<xsl:call-template name="comun"/>
 					</input>
 				</xsl:with-param>
