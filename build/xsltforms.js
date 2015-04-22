@@ -11711,6 +11711,10 @@ XsltForms_repeat.prototype.build_ = function(ctx) {
 		for (var i = l; i < n; i++) {
 			child = r0.cloneNode(true);
 			r.appendChild(child);
+			var inputs = child.querySelectorAll('input[type=radio]');
+			for(var j in inputs) {
+				if(inputs.hasOwnProperty(j)) inputs[j].name += 'cloned';
+			}
 			XsltForms_repeat.initClone(child, inputids);
 		}
 		for (var j = n; j < l && r.childNodes.length > 1; j++) {
