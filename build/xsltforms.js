@@ -3271,7 +3271,7 @@ function XsltForms_subform(subform, id, eltid) {
 	XsltForms_subform.subforms[id] = this;
 }
 
-XsltForms_subform.subforms = [];
+XsltForms_subform.subforms = {};
 
 		
 
