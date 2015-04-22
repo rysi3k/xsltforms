@@ -573,6 +573,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 </xsl:text>
 						<xsl:text>try {
 </xsl:text>
+						<xsl:text>if (window.xf_pre_init) xf_pre_init();
++</xsl:text>
 						<xsl:value-of select="$vn_pf"/>
 						<xsl:text>initImpl();
 </xsl:text>
